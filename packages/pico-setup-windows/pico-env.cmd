@@ -26,7 +26,7 @@ goto main
 
   rem https://stackoverflow.com/questions/22352793/reading-a-registry-value-to-a-batch-variable-handling-spaces-in-value
   for /f "usebackq tokens=2,*" %%h in (
-    `"reg query "HKCU\%PICO_REG_KEY%" /v "%1Path" 2>NUL | find /i "%1Path""`
+    `"reg query "HKCU\%PICO_REG_KEY%" /v "%1Path" 2>NUL | findstr /i "%1Path""`
     ) do (
     echo PICO_%1_PATH=%%i
     set "PICO_%1_PATH=%%i"
